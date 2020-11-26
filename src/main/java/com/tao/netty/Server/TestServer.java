@@ -1,7 +1,7 @@
 package com.tao.netty.Server;
 
-import com.tao.netty.serverhandler.TcpinitHandler;
-import com.tao.netty.serverhandler.TestServerHandler;
+import com.tao.netty.serverhandler.tcp.TcpinitHandler;
+import com.tao.netty.serverhandler.http.TestServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.nio.NioEventLoopGroup;

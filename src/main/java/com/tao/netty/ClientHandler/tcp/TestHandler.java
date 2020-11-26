@@ -1,4 +1,4 @@
-package com.tao.netty.ClientHandler;
+package com.tao.netty.ClientHandler.tcp;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

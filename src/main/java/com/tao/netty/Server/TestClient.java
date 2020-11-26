@@ -1,14 +1,11 @@
 package com.tao.netty.Server;
 
-import com.tao.netty.ClientHandler.ClientinitHandler;
+import com.tao.netty.ClientHandler.tcp.ClientinitHandler;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.FixedRecvByteBufAllocator;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.codec.string.StringEncoder;
 
 
 /**

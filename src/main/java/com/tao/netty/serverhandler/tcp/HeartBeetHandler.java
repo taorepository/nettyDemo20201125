@@ -1,4 +1,4 @@
-package com.tao.netty.serverhandler;
+package com.tao.netty.serverhandler.tcp;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

@@ -1,10 +1,7 @@
-package com.tao.netty.ClientHandler;
+package com.tao.netty.ClientHandler.tcp;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.codec.http.HttpObjectAggregator;
-import io.netty.handler.codec.http.HttpServerCodec;
-import io.netty.handler.codec.string.StringEncoder;
 
 /**
  * @author: wtt

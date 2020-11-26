@@ -1,5 +1,6 @@
-package com.tao.netty.serverhandler;
+package com.tao.netty.serverhandler.tcp;
 
+import com.tao.netty.serverhandler.http.TestServerHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -17,6 +18,6 @@ public class TcpinitHandler extends ChannelInitializer <NioSocketChannel>{
         ChannelPipeline pipeline = nioSocketChannel.pipeline();
         pipeline.addLast(new IdleStateHandler(0, 0, 10, TimeUnit.SECONDS));
         pipeline.addLast(new HeartBeetHandler());
-        pipeline.addLast(new TestServerHandler());
+        pipeline.addLast(new TcpServerHandler());
     }
 }

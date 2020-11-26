@@ -1,4 +1,4 @@
-package com.tao.netty.serverhandler;
+package com.tao.netty.serverhandler.http;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
