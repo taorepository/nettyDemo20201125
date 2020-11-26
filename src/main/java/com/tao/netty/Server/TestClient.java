@@ -1,5 +1,6 @@
 package com.tao.netty.Server;
 
+import com.tao.netty.ClientHandler.ClientinitHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -22,14 +23,7 @@ public class TestClient {
         bootstrap.group(group).channel(NioSocketChannel.class).option(ChannelOption.TCP_NODELAY, true)
                 .option(ChannelOption.SO_BACKLOG, 1000)
                 .option(ChannelOption.SO_KEEPALIVE, true)
-                .option(ChannelOption.RCVBUF_ALLOCATOR, new FixedRecvByteBufAllocator(2048)).handler(new ChannelInitializer<NioSocketChannel>() {
-
-            @Override
-            protected void initChannel(NioSocketChannel channel) throws Exception {
-                channel.pipeline().addLast(new StringEncoder());
-            }
-        });
-
+                .option(ChannelOption.RCVBUF_ALLOCATOR, new FixedRecvByteBufAllocator(2048)).handler(new ClientinitHandler());
         bootstrap.connect("localhost",9300);
     }
 }

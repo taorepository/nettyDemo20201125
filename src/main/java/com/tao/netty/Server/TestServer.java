@@ -1,15 +1,13 @@
 package com.tao.netty.Server;
 
-import com.tao.netty.handler.HttpInitHandler;
-import com.tao.netty.handler.TestServerHandler;
+import com.tao.netty.serverhandler.TcpinitHandler;
+import com.tao.netty.serverhandler.TestServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 
 /**
@@ -28,8 +26,9 @@ public class TestServer {
 
         ServerBootstrap serverBootstrap = new ServerBootstrap();
 
-        serverBootstrap.group(bossGroup,workerGroup).channel(NioServerSocketChannel.class).
-                childHandler(new HttpInitHandler());
+        serverBootstrap.group(bossGroup,workerGroup).channel(NioServerSocketChannel.class)
+//                .childHandler(new HttpInitHandler());
+                    .childHandler(new TcpinitHandler());
         InetSocketAddress inetAddress = new InetSocketAddress(9300);
         ChannelFuture sync = serverBootstrap.bind(inetAddress).sync();
         sync.channel().closeFuture().sync();

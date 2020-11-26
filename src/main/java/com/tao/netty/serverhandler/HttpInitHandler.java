@@ -1,6 +1,5 @@
-package com.tao.netty.handler;
+package com.tao.netty.serverhandler;
 
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.nio.NioSocketChannel;
