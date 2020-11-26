@@ -3,10 +3,14 @@ package com.tao.netty.Server;
 import com.tao.netty.handler.HttpInitHandler;
 import com.tao.netty.handler.TestServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 
 /**
  * @author: wtt
@@ -17,7 +21,7 @@ public class TestServer {
     private TestServerHandler testServerHandler;
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         NioEventLoopGroup bossGroup = new NioEventLoopGroup();
         NioEventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -26,7 +30,8 @@ public class TestServer {
 
         serverBootstrap.group(bossGroup,workerGroup).channel(NioServerSocketChannel.class).
                 childHandler(new HttpInitHandler());
-
-        serverBootstrap.bind(9300);
+        InetSocketAddress inetAddress = new InetSocketAddress(9300);
+        ChannelFuture sync = serverBootstrap.bind(inetAddress).sync();
+        sync.channel().closeFuture().sync();
     }
 }

@@ -23,6 +23,6 @@ public class TestServerHandler extends SimpleChannelInboundHandler<FullHttpReque
                 Unpooled.copiedBuffer("123", CharsetUtil.UTF_8));
         // 设置头信息
         response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/html; charset=UTF-8");
-        channelHandlerContext.writeAndFlush(response);
+        channelHandlerContext.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
     }
 }
